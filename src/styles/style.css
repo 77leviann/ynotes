@@ -1,0 +1,258 @@
+:root {
+  --primary: #27374D;
+  --secondary: #526D82;
+  --accent: #9DB2BF;
+  --background: #DDE6ED;
+  --text: #aaaaaa;
+  --black: #000000;
+  --red: #D71313;
+  --red-hover: #b00020;
+  --blue: #0079FF;
+  --green: #00DFA2;
+  --blue-hover: #0056b3;
+  --yellow: #EC9B3B;
+  --yellow-hover: #c49000;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background);
+  color: var(--black);
+}
+
+.note-app__header {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  padding: 1rem 2rem 1rem 2rem;
+  background-color: var(--primary);
+  border-bottom: 1px solid var(--accent);
+}
+
+.note-app__header h1 {
+  margin: 0.5rem 0;
+  flex: 1;
+  color: white;
+}
+
+.search-note {
+  display: flex;
+  align-items: center;
+}
+
+.search-note input {
+  padding: 0.5rem;
+  margin-right: 0.625rem;
+  border: 1px solid var(--background);
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.search-note button {
+  padding: 0.5rem 0.75rem;
+  background-color: var(--blue);
+  color: var(--background);
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.search-note button:hover,
+.add-note button:hover {
+  background-color: var(--blue-hover);
+}
+
+.add-note {
+  display: flex;
+  flex-direction: column;
+  max-width: 60%;
+  margin: auto;
+  padding: 3rem 0;
+}
+
+.add-note p {
+  font-size: small;
+  align-self: end;
+}
+
+.add-note button {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  background-color: var(--blue);
+  font-family: 'Inter', sans-serif;
+  color: var(--background);
+  border: 1px solid var(--primary);
+  border-radius: 0.25rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+input,
+textarea {
+  padding: 0.75rem;
+  margin: 0.75rem 0;
+  font-family: 'Inter', sans-serif;
+  background-color: transparent;
+  color: var(--black);
+  border: 1px solid var(--black);
+  border-radius: 0.25rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--text);
+  font-weight: bold;
+}
+
+.note-app__body {
+  max-width: 62.5rem;
+  margin: 1rem auto;
+  padding: 0.75rem;
+}
+
+.note-app__body h2 {
+  font-weight: normal;
+  margin: 1rem 0;
+}
+
+.add-note {
+  margin: 0 auto;
+  max-width: 31.25rem;
+  margin-bottom: 3rem;
+}
+
+.add-note input,
+.add-note textarea {
+  display: block;
+  width: 100%;
+}
+
+.add-note__title {
+  font-weight: bold;
+}
+
+.add-note__body {
+  min-height: 10.9375rem;
+}
+
+.notes-list__item {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(min-content, max-content);
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.notes-list__empty-message {
+  text-align: center;
+  color: var(--text);
+}
+
+.card-note {
+  border: 1px solid var(--black);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-note__content {
+  padding: 0.75rem;
+  flex: 1;
+}
+
+.card-note__title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom: 0.25rem;
+}
+
+.card-note__date {
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.card-note__body {
+  font-size: 0.875rem;
+}
+
+.card-note__action {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card-note__delete-button,
+.card-note__archive-button {
+  display: block;
+  width: 100%;
+  border: 0;
+  padding: 0.5rem 0;
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  color: var(--background);
+  transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+}
+
+.card-note__delete-button {
+  background-color: var(--red);
+}
+
+.card-note__archive-button {
+  background-color: var(--yellow);
+}
+
+.card-note__archive-button:hover {
+  background-color: var(--yellow-hover);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-note__delete-button:hover {
+  background-color: var(--red-hover);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--primary);
+  color: var(--background);
+}
+
+
+@media only screen and (min-width: 31.25rem) {
+  .notes-list__item {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media only screen and (min-width: 50rem) {
+  .notes-list__item {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .search-note input {
+    min-width: 25rem;
+  }
+}
+
+@media only screen and (min-width: 50rem) {
+  .notes-list__item {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
